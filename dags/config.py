@@ -42,5 +42,6 @@ def load_configuration() -> dict:
         "silver_path": silver_path,
         "gold_path": gold_path,
         "sqlite_path": sqlite_path,
+        "pyarrow_for_pandas": os.getenv("PANDAS_PYARROW", "true"),
     }
     return secrets
