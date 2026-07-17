@@ -63,7 +63,7 @@ def main():
  
     print("DAG found. Launching execution...")
     subprocess.run(
-        ["airflow", "dags", "test", "spark_pipeline_orchestrator", "2026-07-16", "--conf", json.dumps(run_conf)],
+        ["airflow", "dags", "test", "spark_pipeline_orchestrator", "2026-07-17", "--conf", json.dumps(run_conf)],
         env=current_env, check=True
     )
 
