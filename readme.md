@@ -76,3 +76,22 @@ This proof of concept focuses on usage of airflow v.3.x on premise to orchestrat
 ```bash
 python main.py --ticker NVDA --period 5y --interval 1h
 ```
+
+---
+### Changes for production:
+To elevate your local PySpark and Airflow setup into a portfolio piece that mirrors a production pipeline, you can seamlessly map your current logic to Google Cloud Platform (GCP). In 2026, Google Cloud's Always Free tier provides enough resources to build this exact architecture at zero cost. This demonstrations will be in another repository, `GCP-DataPipeLine`.
+
+### I. The 0-Cost GCP Engine (Replacing Local Infrastructure)
+
+Current PoC relies on local directories and a SQLite database. To make this production-ready, you will shift these storage and compute components to managed cloud services.
+
+* **Storage (The Data Lake):** Replace local `data_lake/` directories with **Google Cloud Storage (GCS)**. The free tier provides 5 GB-months of Standard Storage, which is perfect for isolating the Bronze, Silver, and Gold Delta tables.
+
+
+* **Serving Layer (The Mirror):** Swap the local `pipeline.db` SQLite mirror for **Google BigQuery**. BigQuery acts as an enterprise data warehouse and offers 10 GiB of storage and 1 TiB of querying per month at no cost.
+
+
+* **Compute & Orchestration:** Deploy your `orchestrator.py` and `pipeline.py` onto a **Compute Engine `e2-micro` VM**. You get one free instance per month, which is sufficient to run a lightweight Airflow scheduler and execute PySpark in local mode for small-scale PoC data.
+
+
+* **Configuration Management:** Instead of loading secrets from a local `.env` file, migrate your configuration to **Secret Manager**, which allows 6 free secret versions per month.
