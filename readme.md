@@ -25,7 +25,7 @@ Current PoC relies on local directories and a SQLite database. To make this prod
 * **Configuration Management:** Instead of loading secrets from a local `.env` file, migrate your configuration to **Secret Manager**, which allows 6 free secret versions per month.
 
 --- 
-## Airflow 3 Concepts — Chapter Reference
+## Airflow 3 Concepts — Chapter References
 
 The orchestration patterns in this repo (`config.py`, `pipeline.py`, `orchestrator.py`, `main.py`) line up with *Data Pipelines with Apache Airflow, Second Edition* (Manning) — fully revised for Airflow 3. Use this as a jumping-off point if you want to go deeper on any pattern used here.
 
